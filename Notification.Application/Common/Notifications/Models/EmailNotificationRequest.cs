@@ -6,11 +6,8 @@ using System.Threading.Tasks;
 
 namespace Notification.Application.Common.Notifications.Models
 {
-    public class NotificationResult
+    public class EmailNotificationRequest : NotificationRequest
     {
-        public NotificationResult()
-        {
-
-        }
+        public EmailNotificationRequest() => Type = NotificationType.Email;
     }
 }

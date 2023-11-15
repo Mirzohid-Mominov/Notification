@@ -1,10 +1,7 @@
-﻿using Notification.Application.Common.Notifications.Models;
+﻿using Notification.Application.Common.Models.Querying;
+using Notification.Application.Common.Notifications.Models;
 using Notification.Domain.Common.Exceptions;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Notification.Domain.Entities;
 
 namespace Notification.Application.Common.Notifications.Services
 {
@@ -14,6 +11,8 @@ namespace Notification.Application.Common.Notifications.Services
             NotificationRequest notificationRequest,
             CancellationToken cancellationToken = default);
 
-
+        ValueTask<IList<NotificationTemplate>> GetTemplatesByFilterAsync(
+            NotificationTemplateFilter filter,
+            CancellationToken cancellationToken = default);
     }
 }

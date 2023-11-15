@@ -6,11 +6,8 @@ using System.Threading.Tasks;
 
 namespace Notification.Application.Common.Notifications.Models
 {
-    public class NotificationResult
+    public class SmsNotificationRequest : NotificationRequest
     {
-        public NotificationResult()
-        {
-
-        }
+        public SmsNotificationRequest() => Type = Domain.Enums.NotificationType.Sms;
     }
 }

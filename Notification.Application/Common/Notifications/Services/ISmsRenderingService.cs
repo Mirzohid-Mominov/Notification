@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace Notification.Application.Common.Notifications.Services
 {
-    public interface ISmsSenderService
+    public interface ISmsRenderingService
     {
-        ValueTask<bool> SendAsync(
-           SmsMessage message,
+        ValueTask<string> RenderAsync(
+            SmsMessage smsMessage,
             CancellationToken cancellationToken = default);
     }
 }

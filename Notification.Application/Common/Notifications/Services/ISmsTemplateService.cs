@@ -1,5 +1,7 @@
-﻿using Notification.Application.Common.Models.Querying;
+﻿using Notification.Application.Common.Enums;
+using Notification.Application.Common.Models.Querying;
 using Notification.Domain.Entities;
+using Notification.Domain.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,16 +13,19 @@ namespace Notification.Application.Common.Notifications.Services
 {
     public interface ISmsTemplateService
     {
-        IQueryable<SmsTemplate> Get(Expression<Func<SmsTemplate, bool>>? predicate = default, bool asNoTracking = false);
-
         ValueTask<IList<SmsTemplate>> GetByFilterAsync(
-            FilterPagination filterPagination,
+            FilterPagination paginationOptions,
+            bool asNoTracking = false,
+            CancellationToken cancellationToken = default);
+
+        ValueTask<SmsTemplate?> GetByTypeAsync(
+            NotificationTemplateType templateType,
             bool asNoTracking = false,
             CancellationToken cancellationToken = default);
 
         ValueTask<SmsTemplate> CreateAsync(
             SmsTemplate template,
-            bool asNoTracking = false,
+            bool asNoTracking = true,
             CancellationToken cancellationToken = default);
     }
 }

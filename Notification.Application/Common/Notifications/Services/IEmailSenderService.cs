@@ -7,10 +7,8 @@ using System.Threading.Tasks;
 
 namespace Notification.Application.Common.Notifications.Services
 {
-    public interface ISmsSenderService
+    public interface IEmailSenderService
     {
-        ValueTask<bool> SendAsync(
-           SmsMessage message,
-            CancellationToken cancellationToken = default);
+        ValueTask<bool> SendAsync(EmailMessage message, CancellationToken cancellationToken = default);
     }
 }
